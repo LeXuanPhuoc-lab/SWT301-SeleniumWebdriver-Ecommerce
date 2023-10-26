@@ -1,11 +1,12 @@
 package homework;
 
 import driver.driverFactory;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
+
+import java.io.File;
 
 /*
 
@@ -78,8 +79,15 @@ public class TestCase02 {
             System.out.println("Sony Xperia Detail Price: " + detailPrice);
             AssertJUnit.assertEquals(price, detailPrice);
 
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+            String png = ("D:\\selenium-webdriver-java\\src\\test\\java\\homework\\TestCase02.png");
+            FileUtils.copyFile(scrFile, new File(png));
         }catch(Exception ex){
             ex.printStackTrace();
         }
+
+        // quit driver session
+        driver.quit();
     }
 }

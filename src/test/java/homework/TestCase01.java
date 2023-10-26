@@ -18,15 +18,15 @@ Step 5. Verify all products are sorted by name
 
 import driver.driverFactory;
 import element.DnDHandle;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.AssertJUnit;
 import org.testng.annotations.Test;
 import test.HandleDropdown;
 
+import java.io.File;
 import java.time.Duration;
 
 public class TestCase01 {
@@ -87,6 +87,12 @@ public class TestCase01 {
 
             //debug purpose only
             Thread.sleep(2000);
+
+            // ScreenShot Capture
+            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+            String png = ("D:\\selenium-webdriver-java\\src\\test\\java\\homework\\TestCase01.png");
+            FileUtils.copyFile(scrFile, new File(png));
         }catch(Exception ex){
             ex.printStackTrace();
         }
