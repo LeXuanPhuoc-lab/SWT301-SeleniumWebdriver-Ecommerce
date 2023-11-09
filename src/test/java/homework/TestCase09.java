@@ -59,27 +59,6 @@ public class TestCase09 {
 
             Assert.assertNotEquals(actualTotal, expectedTotal);
 
-
-
-        /*  Verify Discount Coupon works correctly
-
-        Test Case Description:
-
-        1. Go to http://live.techpanda.org/
-
-        2. Go to Mobile and add IPHONE to cart
-
-        3. Enter Coupon Code
-
-        4. Verify the discount generated
-
-        TestData:  Coupon Code: GURU50
-
-        Expected result:
-
-        1) Price is discounted by 5%
-
-        */
         }catch (Exception ex){
             ex.printStackTrace();
         }
